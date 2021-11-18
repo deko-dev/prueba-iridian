@@ -1,0 +1,18 @@
+<mat-spinner diameter="80" class="my-12 mx-auto" *ngIf="events.length === 0; else readyData" ></mat-spinner>
+
+<ng-template #readyData>
+    <mat-card class="w-full p-0 mb-8 border-gray-500 border-1 border-solid border-b-0" *ngFor="let event of events">
+        <mat-card-content>
+            <div
+                class="info-event mx-auto border-b-1 border-solid border-gray-700 flex flex-row justify-evenly items-center p-4">
+                <h2 class="text-center text-base block my-auto">{{ event.name }}</h2>
+            </div>
+    
+            <div class="markets">
+                <app-market (refreshEvents)="onRefreshEvents()" *ngFor="let market of event.markets" [market]="market"></app-market>
+            </div>
+    
+        </mat-card-content>
+    </mat-card>
+</ng-template>
+

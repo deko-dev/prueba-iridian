@@ -1,0 +1,12 @@
+<div class="betslip-items flex flex-col justify-start items-center w-full gap-4 py-5">
+    <mat-card class="w-10/12 mx-auto border-b-2 border-solid border-green-900" *ngFor="let betslip of betslipItems">
+        <mat-card-content class="flex flex-col justify-start items-center text-center">
+            <h2 class="text-xs font-medium block">{{ betslip.name }}</h2>
+            <label class="text-xs font-normal block">{{ betslip.price }}</label>
+            <button mat-raised-button class="block" (click)="onDeleteBetslip(betslip)">
+                <mat-icon>delete</mat-icon>
+                Delete
+            </button>
+        </mat-card-content>
+    </mat-card>
+</div>
